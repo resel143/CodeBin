@@ -1,0 +1,23 @@
+Question: Atcoder Beginner challenge(https://atcoder.jp/contests/abc190/tasks/abc190_b)
+#include<bits/stdc++.h>
+#define ll long long int
+#define l(i,a,b) for(ll i=a;i<b;i++)
+using namespace std;
+int main(){
+	ll n,b,c;
+	cin>>n>>b>>c;
+	ll x[n],y[n];
+	l(i,0,n) cin>>x[i]>>y[i];
+	ll count = 0;
+	l(i,0,n){
+		if(x[i]<b&&y[i]>c){
+			count++;
+		}
+	}
+	if(count>0){
+		cout<<"Yes\n";
+	}
+	else{
+		cout<<"No\n";
+	}
+}
