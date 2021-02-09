@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+#define ll long long int
+#define l(i,a,b) for(ll i=a;i<b;i++)
+using namespace std;
+int main(){
+	ll speed,distance,invi01,invi02;
+	cin>>speed>>invi01>>invi02>>distance;
+	if(invi01*speed<=distance&&distance<=invi02*speed){
+		cout<<"No\n";
+	}
+	else{
+		cout<<"Yes\n";
+	}
+}
