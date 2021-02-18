@@ -2,33 +2,63 @@
 #define ll long long int
 #define l(i,a,b) for(ll i=a;i<b;i++)
 using namespace std;
-ll stn(string str,int i){
-	 return str[i]-48;
-}
 int main(){
-	ll t;
-	cin>>t;
-	while(t--){
-		ll n;
-		cin>>n;
-		string a[n],b[n];
-		l(i,0,n){
-			cin>>a[i]>>b[i];
-		}
-		char mae,mbe;
-		int ha1=0,ha2=0,ma1=0,ma2=0,hb1=0,hb2=0,mb1=0,mb2=0;
-		l(i,0,n){
-			ha1 =stn(a,0);
-		ha2 = stn(a,1)
-		ma1 = stn(a,3);
-		ma2 = stn(a,4);
-		me = a[6];
-		int h1=0,h2=0,m1=0,m2=0;
-		hb1 =str[0]-48;
-		hb2 = str[1]-48;
-		mb1 = str[3]-48;
-		mb2 = str[4] - 48;
-		mbe = b[6];
-		}
+	ll n;
+	cout<<"Message length:";
+	cin>>n;
+	ll total_char;
+	cout<<"Total Characters:";
+	cin>>total_char;
+	cout<<"\nEnter Characters + frequency:(in descending order): ";
+	char ch[total_char];
+	ll freq[total_char+1];
+	l(i,0,total_char){
+		cin>>ch[i]>>freq[i];
 	}
+	ll i=0;
+	ll sum[total_char+1]={0};
+	sum[total_char-1]=freq[total_char-1];
+	for(i=total_char-2;i>=0;i--){
+		sum[i]=sum[i+1]+freq[i];
+	}
+	ll j=0;
+	cout<<"\nDesired Huffman Codes are:\n";
+//	printing the huffman codes 
+	l(i,0,total_char){
+//		if(i<total_char-1){
+				cout<<ch[i]<<"= ";
+				for(j=1;j<i+1;j++){
+					if(sum[j]==freq[j-1]){
+						cout<<1;
+					}
+					else if(sum[j]<freq[j-1]){
+						cout<<0;
+					}	
+				}
+				if(j<total_char){
+					if(sum[j]>=freq[j-1]) cout<<0;
+					else if(sum[j]<freq[j-1]) cout<<1;
+					cout<<"\n";	
+				}
+				else cout<<0;
+//			}
+//		else{
+//			cout<<ch[i]<<"= ";
+//				for(j=0;j<i;j++){
+//					if(sum[j+1]==freq[j]){
+//						cout<<1;
+//					}
+//					else if(sum[j+1]<freq[j]){
+//						cout<<0;
+//					}	
+//				}
+//				if(j+1<total_char){
+//					if(sum[j+1]>=freq[j]) cout<<0;
+//					else if(sum[j+1]<freq[j]) cout<<1;
+//					cout<<"\n";	
+//				}
+//				else cout<<0;
+//			}
+//		}
+		}
 }
