@@ -1,2 +1,2 @@
 # CodeBin
-The Questions which Taught Me
+The Questions that Taught Me
